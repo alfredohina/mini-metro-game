@@ -1,7 +1,121 @@
 var canvas = document.getElementById("mini-metro");
 var ctx = canvas.getContext("2d");
+var img = new Image()
 
 
+function GameArea(time) {
+    this.time = 0;
+    this.score = 0;
+};
+
+
+function clock() {
+    this.time = time;
+    this.score = score;
+    var intervalId = setInterval(function() {
+        this.ctx.clearRect(0, 0, 100, 100)
+        this.ctx.fillText('Tiempo: ' + time, 10, 10);
+        this.ctx.fillText('Puntos: ' + score, 10, 25);
+        time++;
+    }, 1000);
+  };
+
+
+
+
+function passengers () {
+    this.type = type;
+}
+
+
+function clear (){
+    ctx.clearRect(0, 0, 900, 600);
+};
+
+
+
+function star(){
+    requestAnimationFrame(animation);
+}
+
+
+
+
+
+
+// array de pasajeros
+
+
+// check current cap
+
+
+
+
+
+
+// function startStations() {
+//     var randomX
+//     var randomY
+//     function random() {
+//         randomX = Math.floor(Math.random() * (300 - 600)) + 600;
+//         randomY = Math.floor(Math.random() * (200 - 400)) + 400;
+//     }
+//     var img = new Image();
+//     img.src = 'images/square.png';
+//     img.onload = function () {
+//         random();
+//         ctx.drawImage(img, randomX, randomY);
+//     };
+//     var img2 = new Image();
+//     img2.src = 'images/circle.png';
+//     img2.onload = function () {
+//         random();
+//         ctx.drawImage(img2, randomX, randomY);
+//     };
+//     var img3 = new Image();
+//     img3.src = 'images/triangle.png';
+//     img3.onload = function () {
+//         random();
+//         ctx.drawImage(img3, randomX, randomY);
+//     };
+// }
+
+// startStations();
+
+
+// var GameArea = function(){
+//     console.log('a')
+// };
+
+// GameArea.prototype.init = function (){    
+//     console.log('')
+//     canvas.addEventListener("mousedown", function (e) {
+//         ctx.moveTo();
+//     });
+
+//     canvas.addEventListener("mousemove", function (e) {
+//         ctx.moveTo();
+//         ctx.lineTo(e.clientX,e.clientY);
+//     });
+    
+//     canvas.addEventListener("mouseup", function (e) {
+//         ctx.lineTo(e.clientX,e.clientY);
+//         ctx.stroke();
+// }
+    
+
+
+
+
+
+
+
+
+
+
+
+
+/*
 
 function startStations() {
     var randomX
@@ -32,23 +146,6 @@ function startStations() {
 
 startStations();
 
-
-// canvas.addEventListener("mousedown", function (evt) {
-//     ctx.moveTo(10,10);
-// });
-
-// canvas.addEventListener("mousemove", function (e) {
-//         Draw(e.pageX - $(this).offset().left, e.pageY - $(this).offset().top, true);
-// });
-
-// canvas.addEventListener("mouseup", function (evt) {
-// ctx.lineTo(560,5680);
-// ctx.strokeStyle = "#f00";
-// ctx.stroke();
-// });
-
-
-/*
 
 
 

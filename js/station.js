@@ -1,16 +1,58 @@
-function station(type, x, y, width, height, capacity) {
-    this.type = type;
-    this.x = x;
-    this.y = y;
-    this.width = width;
-    this.height = height;
-    this.capacity = 10;
-  };
+function station(type, x, y) {
+  this.type = type;
+  this.x = x;
+  this.y = y;
+  this.width = 20;
+  this.height = 20;
+  this.currentCapacity = 0;
+  this.maxCapacity = 10;
+  this.drawImage = function() {
+    var constructor = this;
+    var image = new Image();
+    image.src = 'images/' + constructor.type + '.png';
 
-  station.prototype.drawStation = function (){
-    this.image.src = "images/square.png";
-    // this.image.src = "images/circle.png";
-    // this.image.src = "images/triangle.png";
-    // ctx.drawImage(this.image, this.x, this.y, this.width, this.height);
-    ctx.drawImage(this.image, 100, 100, 20, 20);
-  };
+    image.onload = function() {
+      ctx.drawImage(image, constructor.x, constructor.y);
+    };
+  }
+};
+
+
+
+// station.prototype.
+
+
+// function startStations() {
+
+//   circle.onload = function() {
+//     ctx.drawImage(circle, 500, 200);
+//   };
+
+//   triangle.onload = function() {
+//       ctx.drawImage(triangle, 300, 250);
+//     };
+
+//   square.onload = function() {
+//       ctx.drawImage(square, 450, 340);
+//     };
+// }
+
+
+
+
+// if o switch case type = square
+
+// pintar estación
+
+
+
+
+station.prototype.push = function () {
+  allStations.push({ type: randomType, x: randomX, y: randomY });
+};
+
+
+
+
+
+  // check y dejar pasajero
