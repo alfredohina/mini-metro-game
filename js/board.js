@@ -10,8 +10,8 @@ function GameArea(time) {
 
 
 function clock() {
-    this.time = time;
-    this.score = score;
+    this.time = 0;
+    this.score = 0;
     var intervalId = setInterval(function() {
         this.ctx.clearRect(0, 0, 100, 100)
         this.ctx.fillText('Tiempo: ' + time, 10, 10);
@@ -39,6 +39,24 @@ function star(){
 }
 
 
+
+
+var btnLineaA = document.getElementById("lineA");
+var btnLineaB = document.getElementById("lineB");
+var btnLineaC = document.getElementById("lineC");
+
+
+btnLineaA.onclick = function(){
+    ctx.strokeStyle = "#ff0000"
+};
+
+btnLineaB.onclick = function(){
+    ctx.strokeStyle = "#33cc33"
+};
+
+btnLineaC.onclick = function(){
+    ctx.strokeStyle = "#0066ff"
+};
 
 
 

@@ -22,20 +22,6 @@ function station(type, x, y) {
 // station.prototype.
 
 
-// function startStations() {
-
-//   circle.onload = function() {
-//     ctx.drawImage(circle, 500, 200);
-//   };
-
-//   triangle.onload = function() {
-//       ctx.drawImage(triangle, 300, 250);
-//     };
-
-//   square.onload = function() {
-//       ctx.drawImage(square, 450, 340);
-//     };
-// }
 
 
 
@@ -43,13 +29,6 @@ function station(type, x, y) {
 // if o switch case type = square
 
 // pintar estación
-
-
-
-
-station.prototype.push = function () {
-  allStations.push({ type: randomType, x: randomX, y: randomY });
-};
 
 
 
