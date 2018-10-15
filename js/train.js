@@ -34,6 +34,10 @@ train.prototype.checks = function (){
 
 
 
+
+
+
+
 // train.prototype.checks = function (){
 
 // check allStations.type = passengers

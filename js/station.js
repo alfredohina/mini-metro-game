@@ -18,6 +18,22 @@ function station(type, x, y) {
 };
 
 
+function generateRandomStation() {
+  var randomX = Math.floor(Math.random() * 900) - 50;
+  //(300 - 600)) + 600;
+  var randomY = Math.floor(Math.random() * 600) - 50;
+  //(200 - 400)) + 400;
+  var types = ['square', 'circle', 'triangle'];
+  var randomType = types[Math.floor(Math.random() * types.length)];
+
+  var newStation = new station(randomType, randomX, randomY);
+  
+  return newStation;
+}
+
+
+
+
 
 // station.prototype.
 

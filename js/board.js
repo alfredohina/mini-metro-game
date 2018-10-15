@@ -39,25 +39,29 @@ function star(){
 }
 
 
+var allStations = [];
 
 
 var btnLineaA = document.getElementById("lineA");
 var btnLineaB = document.getElementById("lineB");
 var btnLineaC = document.getElementById("lineC");
+var btnTrainA = document.getElementById("trainA");
+var btnTrainB = document.getElementById("trainB");
+var btnTrainC = document.getElementById("trainC");
 
 
-btnLineaA.onclick = function(){
-    ctx.strokeStyle = "#ff0000"
+btnTrainA.onclick = function () {
+    console.log(lineA)
+    ctx.fillRect(lineaA[0].x, lineaA[0].y, 50, 50);
 };
 
-btnLineaB.onclick = function(){
-    ctx.strokeStyle = "#33cc33"
+btnTrainB.onclick = function () {
+    ctx.fillRect(lineaB[0].x, lineaB[0].y, 50, 50);
 };
 
-btnLineaC.onclick = function(){
-    ctx.strokeStyle = "#0066ff"
+btnTrainC.onclick = function () {
+    ctx.fillRect(lineaC[0].x, lineaC[0].y, 50, 50);
 };
-
 
 
 
