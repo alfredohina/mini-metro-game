@@ -28,7 +28,6 @@ function passengers () {
 
 
 function launch() {
-    
     for (i = 0; i < allStX.length; i++) {
         allStations[i].drawImage();
     }

@@ -29,12 +29,26 @@ function generateTrain(color, line) {
 
 function addTrain(train){
     allLine.push(train);
+    
 }
 
 
-function moveTrain(train){
-    allLine[0].x++;
-    console.log(allLine)
+// (y1 - y2) / (x1 - x2)
+
+
+function moveTrain(){
+    var slope = (lineaA[0].y - lineaA[1].y) / (lineaA[0].x - lineaA[1].x);
+    // console.log(number)
+    if (allLine[0].x !== lineaA[1].x-25) {
+        if (lineaA[0].x < lineaA[1].x) {
+            allLine[0].x += 1
+            allLine[0].y += slope
+        } else {
+            allLine[0].x -= 1
+            allLine[0].y += -slope
+        }
+    }
+
 }
 
 

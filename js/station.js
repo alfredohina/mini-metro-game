@@ -47,19 +47,7 @@ function generateRandomStation() {
 
 
 
-
-// station.prototype.
-
-
-
-
-
-
 // if o switch case type = square
-
-// pintar estación
-
-
 
 
 
