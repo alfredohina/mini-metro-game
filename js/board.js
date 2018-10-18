@@ -3,6 +3,7 @@ var ctx = canvas.getContext("2d");
 var img = new Image()
 
 
+
 function GameArea(time) {
     this.time = 0;
     this.score = 0;
@@ -21,22 +22,24 @@ function clock() {
   };
 
 
-
-
 function passengers () {
     this.type = type;
 }
 
 
-function clear (){
-    ctx.clearRect(0, 0, 900, 600);
-};
-
-
-
-function star(){
-    requestAnimationFrame(animation);
+function launch() {
+    
+    for (i = 0; i < allStX.length; i++) {
+        allStations[i].drawImage();
+    }
+    requestAnimationFrame(launch);
 }
+
+function loop(){
+    requestAnimationFrame(launch);
+    
+    clock();
+};
 
 
 var allStations = [];
@@ -50,18 +53,47 @@ var btnTrainB = document.getElementById("trainB");
 var btnTrainC = document.getElementById("trainC");
 
 
+
+
+
+
 btnTrainA.onclick = function () {
-    console.log(lineA)
-    ctx.fillRect(lineaA[0].x, lineaA[0].y, 50, 50);
-};
+    if (lineaA.length > 1) {
+        var newTrain = generateTrain('red', lineaA)
+        newTrain.drawTrain();
+        addTrain(newTrain);
+    }
+    function demo(line) {
+        moveTrain();
+        newTrain.drawTrain();
+        requestAnimationFrame(demo);
+    }
+    demo();
+    requestAnimationFrame(demo);
+}
+
+
+
 
 btnTrainB.onclick = function () {
-    ctx.fillRect(lineaB[0].x, lineaB[0].y, 50, 50);
+    if (lineaB.length > 1) {
+        var newTrain = generateTrain('green', lineaB)
+        newTrain.drawTrain();
+        addTrain(newTrain);
+    }
 };
 
 btnTrainC.onclick = function () {
-    ctx.fillRect(lineaC[0].x, lineaC[0].y, 50, 50);
+
+    if (lineaC.length > 1) {
+        var newTrain = generateTrain('blue', lineaC)
+        newTrain.drawTrain();
+        addTrain(newTrain);
+    }
 };
+
+
+
 
 
 

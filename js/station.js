@@ -19,16 +19,29 @@ function station(type, x, y) {
 
 
 function generateRandomStation() {
-  var randomX = Math.floor(Math.random() * 900) - 50;
+  var randomX = Math.floor(Math.random() * (860 - 100) + 100);
   //(300 - 600)) + 600;
-  var randomY = Math.floor(Math.random() * 600) - 50;
+  var randomY = Math.floor(Math.random() * (560 - 40) + 40);
   //(200 - 400)) + 400;
   var types = ['square', 'circle', 'triangle'];
   var randomType = types[Math.floor(Math.random() * types.length)];
 
-  var newStation = new station(randomType, randomX, randomY);
+
   
-  return newStation;
+  for (i = 0; i < allStations.length; i++) {
+
+    // if (!((randomX < (allStations[(allStations.length - 1)].x + 50)) && (randomX >= (allStations[(allStations.length - 1)].x - 50)) && (randomY < (allStations[(allStations.length - 1)].y + 50)) && (randomY >= (allStations[(allStations.length - 1)].y - 50)))) {
+    //   var newStation = new station(randomType, randomX, randomY);
+    //   return newStation;
+    // }
+    
+    // if (!((randomX < (allStations[i].x + 100)) && (randomX >= (allStations[i].x - 50)) && (randomY < (allStations[i].x + 50)) && (randomY >= (allStations[i].y - 50)))) {
+    //   var newStation = new station(randomType, randomX, randomY);
+    //   return newStation;
+    // }
+    var newStation = new station(randomType, randomX, randomY);
+    return newStation;
+  }
 }
 
 

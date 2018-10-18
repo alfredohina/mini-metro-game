@@ -42,7 +42,7 @@ var allStYC = lineaC.map(function(obj) {
     return obj.y + 15;
 });
 
-
+var allStations = [];
 
 var allStX = allStations.map(function(obj) {       
     return obj.x + 15;
@@ -51,6 +51,8 @@ var allStX = allStations.map(function(obj) {
 var allStY = allStations.map(function(obj) {       
     return obj.y + 15;
 });
+
+var allLine = [];
 
 
 btnLineaA.onclick = function () {
@@ -81,9 +83,9 @@ btnLineaB.onclick = function () {
             if ((e.clientX < (allStX[i]) + 50) && (e.clientX >= allStX[i]) && (e.clientY < (allStY[i]) + 50) && (e.clientY >= allStY[i])) {
                 ctx.lineWidth = 10;
                 // ctx.strokeStyle = this.color;
-                ctx.lineTo(allStX[i], allStY[i]);
+                ctx.lineTo(allStX[i]+7, allStY[i]-7);
                 ctx.stroke();
-                lineaA.push({ x: allStXB[i], y: allStYB[i] });
+                lineaB.push({ x: allStX[i], y: allStY[i] });
             }
         }
     };
@@ -96,18 +98,28 @@ btnLineaC.onclick = function () {
     canvas.onclick = function (e) {
 
         for (i = 0; i < allStX.length; i++) {
+            
             if ((e.clientX < (allStX[i]) + 50) && (e.clientX >= allStX[i]) && (e.clientY < (allStY[i]) + 50) && (e.clientY >= allStY[i])) {
                 ctx.lineWidth = 10;
                 // ctx.strokeStyle = this.color;
-                ctx.lineTo(allStX[i], allStY[i]);
+                ctx.lineTo(allStX[i]-7, allStY[i]+7);
                 ctx.stroke();
-                lineaA.push({ x: allStXC[i], y: allStYC[i] });
+                lineaC.push({ x: allStX[i], y: allStY[i] });
+                
             }
         }
     };
 };
 
 
+
+
+
+
+
 // current mouse pos -> loop de los moveTo (comprobar con current mouse con evento client) Si es igual, hace splice.Guarda esa variable y punta 
 
 // select color (en la instancia llamar a este metodo)
+
+
+

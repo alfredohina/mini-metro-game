@@ -1,0 +1,42 @@
+body {
+    background-color: #EAE2A1;
+}
+
+#mini-metro {
+    background-color: #F8F5DD;
+}
+
+.game {
+    float: left;
+}
+
+.controls {
+    float: left;
+    margin-left: 20px;
+    margin-top: 50px;
+}
+
+button {
+    border: none;
+    color: white;
+    padding: 10px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin: 4px 2px;
+    cursor: pointer;
+    border-radius: 12px;
+}
+
+#lineA, #trainA {
+    background-color: #ff0000;
+}
+
+#lineB, #trainB {
+    background-color: #39ce3e;
+}
+
+#lineC, #trainC {
+    background-color: #295ffc;
+}

@@ -17,17 +17,20 @@ window.onload = function () {
 
 
     window.setInterval(function () {
+        if (allStations.length < 10) {
+            var newStation = generateRandomStation()
+            newStation.drawImage();
+            addStation(newStation);
+        }
 
-        var newStation = generateRandomStation()
-        newStation.drawImage();
-        addStation(newStation);
+    }, 300);
 
 
-    }, 5000);
-
-    clock();
+    loop();
 
 };
+
+
 
 
 

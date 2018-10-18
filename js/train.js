@@ -1,4 +1,5 @@
-function train () {
+function train (color, x, y) {
+    this.color = color;
     this.x = x;
     this.y = y;
     this.width = 45;
@@ -7,20 +8,47 @@ function train () {
     this.currentCapacity = 0;
     this.maxCapacity = 6;
     this.passengers = [];
+    this.drawTrain = function() {
+        var trainConstructor = this;
+        var image = new Image();
+        image.src = 'images/' + trainConstructor.color + '.png';
+    
+        image.onload = function() {
+          ctx.drawImage(image, trainConstructor.x, trainConstructor.y);
+        };
+    }
 }
 
-train.prototype.draw = function (){
-    ctx.fillRect(this.x, this.y, this.width, this.height);
-};
+
+function generateTrain(color, line) {
+    var newTrain = new train(color, line[0].x-25, line[0].y-25);
+    return newTrain;
+}
 
 
 
-train.prototype.followThePath = function (){
+function addTrain(train){
+    allLine.push(train);
+}
+
+
+function moveTrain(train){
+    allLine[0].x++;
+    console.log(allLine)
+}
+
+
+
+// train.prototype.followThePath = function (){
 // stop 
-this.checks();
+// this.checks();
 // 3 sec pause
 // start - move
-};
+// };
+
+
+
+
 
 
 train.prototype.checks = function (){
@@ -45,3 +73,4 @@ train.prototype.checks = function (){
 // score++
 
 //   };
+
