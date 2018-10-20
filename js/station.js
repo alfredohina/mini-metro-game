@@ -10,10 +10,7 @@ function station(type, x, y) {
     var constructor = this;
     var image = new Image();
     image.src = 'images/' + constructor.type + '.png';
-
-    image.onload = function() {
       ctx.drawImage(image, constructor.x, constructor.y);
-    };
   }
 };
 

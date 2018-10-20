@@ -12,10 +12,7 @@ function train (color, x, y) {
         var trainConstructor = this;
         var image = new Image();
         image.src = 'images/' + trainConstructor.color + '.png';
-    
-        image.onload = function() {
           ctx.drawImage(image, trainConstructor.x, trainConstructor.y);
-        };
     }
 }
 
@@ -29,26 +26,34 @@ function generateTrain(color, line) {
 
 function addTrain(train){
     allLine.push(train);
-    
 }
 
 
-// (y1 - y2) / (x1 - x2)
 
-
-function moveTrain(){
-    var slope = (lineaA[0].y - lineaA[1].y) / (lineaA[0].x - lineaA[1].x);
-    // console.log(number)
-    if (allLine[0].x !== lineaA[1].x-25) {
-        if (lineaA[0].x < lineaA[1].x) {
-            allLine[0].x += 1
+function moveTrain(lineaA){
+    for (i = 0; i < lineaA.length; i++) {
+        var slope = (lineaA[i].y - lineaA[i+1].y) / (lineaA[i].x - lineaA[i+1].x);
+        if (allLine[0].x !== lineaA[i+1].x-25) {
+            if (lineaA[i].x < lineaA[i+1].x) {
+             allLine[0].x += 1
             allLine[0].y += slope
         } else {
             allLine[0].x -= 1
             allLine[0].y += -slope
         }
     }
+    }
 
+    // var slope = (lineaA[0].y - lineaA[1].y) / (lineaA[0].x - lineaA[1].x);
+    // if (allLine[0].x !== lineaA[1].x-25) {
+    //     if (lineaA[0].x < lineaA[1].x) {
+    //         allLine[0].x += 1
+    //         allLine[0].y += slope
+    //     } else {
+    //         allLine[0].x -= 1
+    //         allLine[0].y += -slope
+    //     }
+    // }
 }
 
 

@@ -56,17 +56,10 @@ var allLine = [];
 
 
 btnLineaA.onclick = function () {
-    
     ctx.strokeStyle = "#ff0000";
-    ctx.beginPath();
     canvas.onclick = function (e) {
-        
         for (i = 0; i < allStX.length; i++) {
             if ((e.clientX < (allStX[i]) + 50) && (e.clientX >= allStX[i]) && (e.clientY < (allStY[i]) + 50) && (e.clientY >= allStY[i])) {
-                ctx.lineWidth = 10;
-                // ctx.strokeStyle = this.color;
-                ctx.lineTo(allStX[i], allStY[i]);
-                ctx.stroke();
                 lineaA.push({ x: allStX[i], y: allStY[i] });
             }
         }

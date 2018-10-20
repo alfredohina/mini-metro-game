@@ -4,41 +4,41 @@ var img = new Image()
 
 
 
-function GameArea(time) {
-    this.time = 0;
-    this.score = 0;
-};
+// function GameArea(time) {
+//     this.time = 0;
+//     this.score = 0;
+// };
 
+
+var time = 0;
+var score = 0;
+
+var intervalId = setInterval(function() {
+    time++;
+    console.log(time)
+}, 1000);
 
 function clock() {
-    this.time = 0;
-    this.score = 0;
-    var intervalId = setInterval(function() {
-        this.ctx.clearRect(0, 0, 100, 100)
-        this.ctx.fillText('Tiempo: ' + time, 10, 10);
-        this.ctx.fillText('Puntos: ' + score, 10, 25);
-        time++;
-    }, 1000);
-  };
+    ctx.fillText('Tiempo: ' + this.time, 10, 10);
+    ctx.fillText('Puntos: ' + this.score, 10, 25);
+}
 
 
-function passengers () {
+function passengers() {
     this.type = type;
 }
+
+function clear(){
+    ctx.clearRect(0, 0, canvas.width, canvas.height);
+};
 
 
 function launch() {
     for (i = 0; i < allStX.length; i++) {
         allStations[i].drawImage();
     }
-    requestAnimationFrame(launch);
 }
 
-function loop(){
-    requestAnimationFrame(launch);
-    
-    clock();
-};
 
 
 var allStations = [];
@@ -62,17 +62,7 @@ btnTrainA.onclick = function () {
         newTrain.drawTrain();
         addTrain(newTrain);
     }
-    function demo(line) {
-        moveTrain();
-        newTrain.drawTrain();
-        requestAnimationFrame(demo);
-    }
-    demo();
-    requestAnimationFrame(demo);
 }
-
-
-
 
 btnTrainB.onclick = function () {
     if (lineaB.length > 1) {
