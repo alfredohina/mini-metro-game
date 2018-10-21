@@ -15,7 +15,6 @@ var score = 0;
 
 var intervalId = setInterval(function() {
     time++;
-    console.log(time)
 }, 1000);
 
 function clock() {

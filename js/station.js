@@ -2,10 +2,9 @@ function station(type, x, y) {
   this.type = type;
   this.x = x;
   this.y = y;
-  this.width = 20;
-  this.height = 20;
+  this.passenger = []
   this.currentCapacity = 0;
-  this.maxCapacity = 10;
+  this.maxCapacity = 4;
   this.drawImage = function() {
     var constructor = this;
     var image = new Image();

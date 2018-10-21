@@ -10,6 +10,8 @@ function addStation(station){
     allStY.push(station.y + 15)
 }
 
+
+
 var lineaA = [];
 
 var allStXA = lineaA.map(function(obj) {       

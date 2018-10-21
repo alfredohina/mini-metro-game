@@ -13,6 +13,8 @@ window.onload = function () {
     var sTriangle = new station('triangle', 300, 250)
     sTriangle.drawImage();
 
+
+
     addStation(sSquare)
     addStation(sCircle)
     addStation(sTriangle)
@@ -25,11 +27,18 @@ window.onload = function () {
             addStation(newStation);
         }
     }, 1000);
+
+    window.setInterval(function () {
+            newPassenger = generateRandomPassenger()
+    }, 1000);
     
     
     function loop(){
             clear();
             clock();
+            if (allLine.length > 0) {
+                checks();
+            }
             if (lineaA.length > 1) {
                 for (i = 0; i < lineaA.length-1; i++) {
                     ctx.lineWidth = 10;
@@ -37,19 +46,21 @@ window.onload = function () {
                     ctx.moveTo(e[i].x, e[i].y);
                     ctx.lineTo(e[i+1].x, e[i+1].y);
                     ctx.stroke();
-                    console.log(e[i+1].x)
                 }
             }
-            allStations.forEach(station => {
-                station.drawImage();
-            })
             allLine.forEach(train => {
                 train.drawTrain();
             })
             if (allLine.length >= 1) {
                 moveTrain(lineaA);
             }
-            
+            allStations.forEach(station => {
+                station.drawImage();
+            })
+            allPassengers.forEach(passenger => {
+                passenger.drawPassenger();
+            })
+
         requestAnimationFrame(loop);
     };
     

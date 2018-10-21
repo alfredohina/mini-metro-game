@@ -30,30 +30,19 @@ function addTrain(train){
 
 
 
-function moveTrain(lineaA){
+function moveTrain(lineaA) {
     for (i = 0; i < lineaA.length; i++) {
-        var slope = (lineaA[i].y - lineaA[i+1].y) / (lineaA[i].x - lineaA[i+1].x);
-        if (allLine[0].x !== lineaA[i+1].x-25) {
-            if (lineaA[i].x < lineaA[i+1].x) {
-             allLine[0].x += 1
-            allLine[0].y += slope
-        } else {
-            allLine[0].x -= 1
-            allLine[0].y += -slope
+        var slope = (lineaA[0].y - lineaA[1].y) / (lineaA[0].x - lineaA[1].x);
+        if (allLine[0].x !== lineaA[1].x - 25) {
+            if (lineaA[0].x < lineaA[1].x) {
+                allLine[0].x += 1
+                allLine[0].y += slope
+            } else {
+                allLine[0].x -= 1
+                allLine[0].y += -slope
+            }
         }
     }
-    }
-
-    // var slope = (lineaA[0].y - lineaA[1].y) / (lineaA[0].x - lineaA[1].x);
-    // if (allLine[0].x !== lineaA[1].x-25) {
-    //     if (lineaA[0].x < lineaA[1].x) {
-    //         allLine[0].x += 1
-    //         allLine[0].y += slope
-    //     } else {
-    //         allLine[0].x -= 1
-    //         allLine[0].y += -slope
-    //     }
-    // }
 }
 
 
@@ -67,16 +56,18 @@ function moveTrain(lineaA){
 
 
 
-
-
-
-train.prototype.checks = function (){
-    if (passengers.type === station.type) {
-        arrayPassengers.splice(x, 1);
-        this.currentCapacity--;
-        score++;
+function checks (){
+    if (allLine[0].x === allStations[0].x-10) {
+        if (allStations[0].type === allStations[0].passenger[0].type) {
+            score + 1;
+        }
     }
-    followThePath();
+
+
+    // if (passengers.type === station.type) {
+    //     arrayPassengers.splice(x, 1);
+    //     score++;
+    // }
 };
 
 
