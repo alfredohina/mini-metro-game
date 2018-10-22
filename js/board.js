@@ -12,6 +12,7 @@ var img = new Image()
 
 var time = 0;
 var score = 0;
+var travelers = 0;
 
 var intervalId = setInterval(function() {
     time++;
@@ -20,6 +21,7 @@ var intervalId = setInterval(function() {
 function clock() {
     ctx.fillText('Tiempo: ' + this.time, 10, 10);
     ctx.fillText('Puntos: ' + this.score, 10, 25);
+    ctx.fillText('En transito: ' + this.travelers, 10, 40);
 }
 
 

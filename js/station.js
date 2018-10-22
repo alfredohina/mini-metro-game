@@ -15,6 +15,8 @@ function station(type, x, y) {
 
 
 function generateRandomStation() {
+  var snd = new Audio("sounds/newStation.mov"); // buffers automatically when created
+  snd.play();
   var randomX = Math.floor(Math.random() * (860 - 100) + 100);
   //(300 - 600)) + 600;
   var randomY = Math.floor(Math.random() * (560 - 40) + 40);
@@ -22,7 +24,7 @@ function generateRandomStation() {
   var types = ['square', 'circle', 'triangle'];
   var randomType = types[Math.floor(Math.random() * types.length)];
 
-
+  
   
   for (i = 0; i < allStations.length; i++) {
 
