@@ -31,26 +31,47 @@ function addTrain(train){
 }
 
 var estacionOrigen = 0;
-    var estacionDestino = 1;
+var estacionDestino = 1;
 
-    var stop = false;
+var stop = false;
 
-    var incremento = 1;
-    var ticksStopped = 0;
+var incremento = 1;
+var timeStopped = 0;
+
 function moveTrain() {
-        
+
+
         var slope = (lineaA[estacionOrigen].y - lineaA[estacionDestino].y) / (lineaA[estacionOrigen].x - lineaA[estacionDestino].x);
             if (lineaA[estacionOrigen].x < lineaA[estacionDestino].x) {
-                allLine[0].x += 1
-                allLine[0].y += slope
+                allLine[0].x += 0.5
+                allLine[0].y += slope / 2
             } else {
-                allLine[0].x -= 1
-                allLine[0].y += -slope
+                allLine[0].x -= 0.5
+                allLine[0].y += -slope / 2
             }
     
-    
 
-       
+
+
+        if(allLine[0].x === allStations[0].x){
+                //llegada a destino
+            // if (allLine.currentCapacity <= allLine.maxCapacity) {
+                // splice a estacion
+                    allStations[0].passenger.forEach(elem => {
+                        console.log('a')
+                        allStations[0].passenger.shift()                    
+                        travelers++
+                });
+                // -- allStations[0].passenger.splice(0,3)
+                // push a tren
+                // -- travelers++
+                // this.currentCapacity++
+            // }
+        }
+
+
+
+
         if(allLine[0].x === lineaA[estacionDestino].x - 25){
 
             //llegada a destino
@@ -70,6 +91,16 @@ function moveTrain() {
             }
 
             //partimos hacia otro lugar
+
+            // if (allStations[X].passengers = allLine[0].passengers) {
+                
+            //     splice del array
+            //     this.currentCapacity--
+            //     travelers--
+            //     score++
+            // }
+
+
 
             stop = true;
            

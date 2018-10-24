@@ -81,10 +81,10 @@ window.onload = function () {
                 train.drawTrain();
             })
             if (allLine.length >= 1) {
-                if(stop && ticksStopped == 10){
+                if(stop && timeStopped == 200){
                     moveTrain();
                     stop = false;
-                    ticksStopped = 0;
+                    timeStopped = 0;
                 }
                 else if(!stop){
                     moveTrain();
@@ -93,13 +93,17 @@ window.onload = function () {
             }
             allStations.forEach(station => {
                 station.drawImage();
-            })
-            allPassengers.forEach(passenger => {
-                passenger.drawPassenger();
+                station.passenger.forEach(pas => {
+                pas.drawPassenger();
+                })
             })
 
-           if(stop)
-            ticksStopped++;
+            if (stop) {
+                timeStopped++;
+            }
+
+
+
         requestAnimationFrame(loop);
     };
     
