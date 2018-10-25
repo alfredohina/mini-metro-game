@@ -59,6 +59,20 @@ function moveTrain() {
         allLine[0].y += -slope / 2
     }
 
+    // var slope = (lineaA[estacionOrigen].y - lineaA[estacionDestino].y) / (lineaA[estacionOrigen].x - lineaA[estacionDestino].x);
+    // var arctng = Math.atan(slope);
+
+    // var cos = Math.cos(arctng * slope)
+    // var sen = Math.sin(arctng * slope)
+
+    // if (lineaA[estacionOrigen].x < lineaA[estacionDestino].x) {
+    //     allLine[0].x += sen
+    //     allLine[0].y += cos
+    // } else {
+    //     allLine[0].x += sen
+    //     allLine[0].y = cos
+    // }
+
 
 //CHECKS
 
@@ -66,21 +80,22 @@ function moveTrain() {
         if (stop) {
             if ((allLine[0].x + 15 >= station.x) && (allLine[0].x <= station.x)) {
 
+
                 allLine.forEach(train => {
-                    train.passengers.forEach(pas => {
-                        if (pas === station.type) {
-                            // allLine[0].passengers.push(pas.type);
-                            train.passengers.shift();
-                            travelers--
-                            score++
+                    train.passengers.reduceRight(function(acc, item, index, object) {
+                        if (item === station.type) {
+                          object.splice(index, 1);
+                          travelers--
+                          score++
                         }
-                    })
+                      }, []);
                 })
+
 
                 station.passenger.forEach(pas => {
                     if (allLine[0].passengers.length < 6) {
                         allLine[0].passengers.push(pas.type);
-                        station.passenger.shift();
+                        station.passenger.splice(pas, 1);
                         travelers++
                     }
                 })

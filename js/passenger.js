@@ -14,7 +14,6 @@ function passenger(type, x, y) {
 function generateRandomPassenger() {
     var randStation = Math.floor(Math.random()*allStations.length)
     var randomStations = allStations[randStation];
-    // Math.floor(Math.random() * (860 - 100) + 100);
     var types = ['square', 'circle', 'triangle'];
     var randomType = types[Math.floor(Math.random() * types.length)];
 

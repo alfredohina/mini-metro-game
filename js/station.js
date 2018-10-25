@@ -54,8 +54,6 @@ function generateRandomStation() {
 
 
 
-console.log(item)
-
   var snd = new Audio("sounds/newStation.mov");
   snd.play();
   var randomX = Math.floor(Math.random() * (860 - 100) + 100);

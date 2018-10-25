@@ -81,7 +81,7 @@ window.onload = function () {
                 train.drawTrain();
             })
 
-            if (allLine.length >= 1) {
+            if (allLine.length > 0) {
                 if(stop && timeStopped == 200){
                     moveTrain();
                     stop = false;

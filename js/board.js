@@ -73,7 +73,13 @@ btnTrainA.onclick = function () {
 }
 
 btnTrainAdel.onclick = function () {
-    allLine.pop();
+    travelers -= allLine[0].passengers.length;
+    allLine.shift()
+    estacionOrigen = 0;
+    estacionDestino = 1;
+    stop = false;
+    incremento = 1;
+    timeStopped = 0;
 }
 
 btnTrainB.onclick = function () {
