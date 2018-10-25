@@ -1,4 +1,4 @@
-function train (color, x, y) {
+function train(color, x, y) {
     this.color = color;
     this.x = x;
     this.y = y;
@@ -8,27 +8,32 @@ function train (color, x, y) {
     this.currentCapacity = 0;
     this.maxCapacity = 6;
     this.passengers = [];
-    this.drawTrain = function() {
+    this.drawTrain = function () {
         var trainConstructor = this;
         var image = new Image();
         image.src = 'images/' + trainConstructor.color + '.png';
-          ctx.drawImage(image, trainConstructor.x, trainConstructor.y);
+        ctx.drawImage(image, trainConstructor.x, trainConstructor.y);
     }
 }
 
 
 function generateTrain(color, line) {
-    var snd = new Audio("sounds/newTrain.mov"); // buffers automatically when created
-  snd.play();
-    var newTrain = new train(color, line[0].x-25, line[0].y-25);
+    var snd = new Audio("sounds/newTrain.mov");
+    snd.play();
+    var newTrain = new train(color, line[0].x - 25, line[0].y - 25);
     return newTrain;
 }
 
 
 
-function addTrain(train){
+function addTrain(train) {
     allLine.push(train);
 }
+
+
+
+//MOVEMENT VALUES
+
 
 var estacionOrigen = 0;
 var estacionDestino = 1;
@@ -38,91 +43,73 @@ var stop = false;
 var incremento = 1;
 var timeStopped = 0;
 
+
+
+
 function moveTrain() {
 
+//MOVEMENT
 
-        var slope = (lineaA[estacionOrigen].y - lineaA[estacionDestino].y) / (lineaA[estacionOrigen].x - lineaA[estacionDestino].x);
-            if (lineaA[estacionOrigen].x < lineaA[estacionDestino].x) {
-                allLine[0].x += 0.5
-                allLine[0].y += slope / 2
-            } else {
-                allLine[0].x -= 0.5
-                allLine[0].y += -slope / 2
-            }
-    
+    var slope = (lineaA[estacionOrigen].y - lineaA[estacionDestino].y) / (lineaA[estacionOrigen].x - lineaA[estacionDestino].x);
+    if (lineaA[estacionOrigen].x < lineaA[estacionDestino].x) {
+        allLine[0].x += 0.5
+        allLine[0].y += slope / 2
+    } else {
+        allLine[0].x -= 0.5
+        allLine[0].y += -slope / 2
+    }
 
 
+//CHECKS
 
-        if(allLine[0].x === allStations[0].x){
-                //llegada a destino
-            // if (allLine.currentCapacity <= allLine.maxCapacity) {
-                // splice a estacion
-                    allStations[0].passenger.forEach(elem => {
-                        console.log('a')
-                        allStations[0].passenger.shift()                    
+    allStations.forEach(station => {
+        if (stop) {
+            if ((allLine[0].x + 15 >= station.x) && (allLine[0].x <= station.x)) {
+
+                allLine.forEach(train => {
+                    train.passengers.forEach(pas => {
+                        if (pas === station.type) {
+                            // allLine[0].passengers.push(pas.type);
+                            train.passengers.shift();
+                            travelers--
+                            score++
+                        }
+                    })
+                })
+
+                station.passenger.forEach(pas => {
+                    if (allLine[0].passengers.length < 6) {
+                        allLine[0].passengers.push(pas.type);
+                        station.passenger.shift();
                         travelers++
-                });
-                // -- allStations[0].passenger.splice(0,3)
-                // push a tren
-                // -- travelers++
-                // this.currentCapacity++
-            // }
+                    }
+                })
+            }
+        }
+    });
+
+
+//RECALCULATIN DESTINY
+
+    if (allLine[0].x === lineaA[estacionDestino].x - 25) {
+
+
+        estacionOrigen += incremento;
+        estacionDestino += incremento;
+        if (estacionDestino === lineaA.length) {
+            estacionOrigen = lineaA.length - 1;
+            estacionDestino = lineaA.length - 2;
+            incremento = -1;
+        }
+        if (estacionDestino === -1) {
+            estacionOrigen = 0;
+            estacionDestino = 1;
+            incremento = +1;
         }
 
 
+        stop = true;
 
+    }
 
-        if(allLine[0].x === lineaA[estacionDestino].x - 25){
-
-            //llegada a destino
-
-
-            estacionOrigen += incremento;
-            estacionDestino += incremento;
-            if (estacionDestino === lineaA.length) {
-                estacionOrigen = lineaA.length -1;
-                estacionDestino = lineaA.length -2;
-                incremento = -1;
-            }
-            if (estacionDestino === -1) {
-                estacionOrigen = 0;
-                estacionDestino = 1;
-                incremento = +1;
-            }
-
-            //partimos hacia otro lugar
-
-            // if (allStations[X].passengers = allLine[0].passengers) {
-                
-            //     splice del array
-            //     this.currentCapacity--
-            //     travelers--
-            //     score++
-            // }
-
-
-
-            stop = true;
-           
-        }
-       
 }
-
-
-
-
-// function checks (){
-//     if (allLine[0].x === allStations[0].x-10) {
-//         if (allStations[0].type === allStations[0].passenger[0].type) {
-//             score + 1;
-//         }
-//     }
-
-
-    // if (passengers.type === station.type) {
-    //     arrayPassengers.splice(x, 1);
-    //     score++;
-    // }
-// };
-
-

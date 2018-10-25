@@ -46,9 +46,12 @@ var allStations = [];
 
 
 var btnLineaA = document.getElementById("lineA");
+var btnLineaAdel = document.getElementById("lineAdel");
+var btnLineaAdelB = document.getElementById("lineAdelB");
 var btnLineaB = document.getElementById("lineB");
 var btnLineaC = document.getElementById("lineC");
 var btnTrainA = document.getElementById("trainA");
+var btnTrainAdel = document.getElementById("trainAdel");
 var btnTrainB = document.getElementById("trainB");
 var btnTrainC = document.getElementById("trainC");
 
@@ -58,11 +61,19 @@ var btnTrainC = document.getElementById("trainC");
 
 
 btnTrainA.onclick = function () {
-    if (lineaA.length > 1) {
+    if ((lineaA.length > 1) && (allLine.length == 0)) {
         var newTrain = generateTrain('red', lineaA)
         newTrain.drawTrain();
         addTrain(newTrain);
+    } else if (lineaA.length <= 1) {
+        alert ('Primero debes crear una Línea Roja');
+    } else if (allLine.length > 0) {
+        alert ('Ya hay un tren recorriendo esta línea')
     }
+}
+
+btnTrainAdel.onclick = function () {
+    allLine.pop();
 }
 
 btnTrainB.onclick = function () {
@@ -81,206 +92,3 @@ btnTrainC.onclick = function () {
         addTrain(newTrain);
     }
 };
-
-
-
-
-
-
-// array de pasajeros
-
-
-// check current cap
-
-
-
-
-
-
-// function startStations() {
-//     var randomX
-//     var randomY
-//     function random() {
-//         randomX = Math.floor(Math.random() * (300 - 600)) + 600;
-//         randomY = Math.floor(Math.random() * (200 - 400)) + 400;
-//     }
-//     var img = new Image();
-//     img.src = 'images/square.png';
-//     img.onload = function () {
-//         random();
-//         ctx.drawImage(img, randomX, randomY);
-//     };
-//     var img2 = new Image();
-//     img2.src = 'images/circle.png';
-//     img2.onload = function () {
-//         random();
-//         ctx.drawImage(img2, randomX, randomY);
-//     };
-//     var img3 = new Image();
-//     img3.src = 'images/triangle.png';
-//     img3.onload = function () {
-//         random();
-//         ctx.drawImage(img3, randomX, randomY);
-//     };
-// }
-
-// startStations();
-
-
-// var GameArea = function(){
-//     console.log('a')
-// };
-
-// GameArea.prototype.init = function (){    
-//     console.log('')
-//     canvas.addEventListener("mousedown", function (e) {
-//         ctx.moveTo();
-//     });
-
-//     canvas.addEventListener("mousemove", function (e) {
-//         ctx.moveTo();
-//         ctx.lineTo(e.clientX,e.clientY);
-//     });
-    
-//     canvas.addEventListener("mouseup", function (e) {
-//         ctx.lineTo(e.clientX,e.clientY);
-//         ctx.stroke();
-// }
-    
-
-
-
-
-
-
-
-
-
-
-
-
-/*
-
-function startStations() {
-    var randomX
-    var randomY
-    function random() {
-        randomX = Math.floor(Math.random() * (300 - 600)) + 600;
-        randomY = Math.floor(Math.random() * (200 - 400)) + 400;
-    }
-    var img = new Image();
-    img.src = 'images/square.png';
-    img.onload = function () {
-        random();
-        ctx.drawImage(img, randomX, randomY);
-    };
-    var img2 = new Image();
-    img2.src = 'images/circle.png';
-    img2.onload = function () {
-        random();
-        ctx.drawImage(img2, randomX, randomY);
-    };
-    var img3 = new Image();
-    img3.src = 'images/triangle.png';
-    img3.onload = function () {
-        random();
-        ctx.drawImage(img3, randomX, randomY);
-    };
-}
-
-startStations();
-
-
-
-
-function station(type, x, y, width, height, capacity) {
-    this.type = type;
-    this.x = x;
-    this.y = y;
-    this.width = width;
-    this.height = height;
-    this.capacity = 10;
-    this.image = new Image();
-  };
-
-  station.prototype.drawStation = function (){
-
-    ctx.moveTo(10,10);
-ctx.lineTo(180,180);
-ctx.strokeStyle = "#f00";
-ctx.stroke();
-
-    // this.image.src = "images/square.png";
-    // this.image.src = "images/circle.png";
-    // this.image.src = "images/triangle.png";
-    // ctx.drawImage(this.image, this.x, this.y, this.width, this.height);
-    // ctx.drawImage(this.image, this.x, this.y, this.width, this.height);
-  };
-
-
-
-  
-}
-
-startStations();
-
-
-
-
-
-
-
-
-
-
-
-// function startStations() {
-    //     var randomX;
-    //     var randomY;
-    //     var oldRandomY;
-    //     var oldRandomX;
-        
-    //     var a_valor_random = "";
-    //     var v_valor = "";
-        
-    
-    //     var img = new Image();
-    //     img.src = 'images/square.png';
-    //     a_valor_random = random();
-    //     v_valor = a_valor_random.split(";");
-    //     img.onload = function (v_valor) {
-    //         ctx.drawImage(img, v_valor[0], v_valor[1]);
-    //     };
-    //     oldRandomX = v_valor[0];
-    //     oldRandomY = v_valor[1];
-    //     var img2 = new Image();
-    //     img2.src = 'images/circle.png';
-    //     img2.onload = function () {
-    //         console.log(v_valor[0] +' = ' + (parseInt(v_valor[0])+ parseInt(10)) + ' = ' + oldRandomX);
-    //         while (parseInt(v_valor[0]) <= (parseInt(oldRandomX) + parseInt(10))) {
-    //             a_valor_random = random();
-    //             v_valor = a_valor_random.split(";");
-    //             console.log(v_valor[0]);
-    //         }
-    //         console.log(v_valor[0]+' = ' + parseInt(v_valor[0])+parseInt(10) + ' = ' + oldRandomX);
-    //         ctx.drawImage(img2, v_valor[0], v_valor[1]);
-    //         oldRandomX = v_valor[0];
-    //         oldRandomY = v_valor[1];
-    //     };
-    //     var img3 = new Image();
-    //     img3.src = 'images/triangle.png';
-    //     img3.onload = function () {
-    //         random();
-    //         while (parseInt(v_valor[0]) <= (parseInt(oldRandomX) + parseInt(10))) {
-    //             a_valor_random = random();
-    //             v_valor = a_valor_random.split(";");
-    //             console.log(v_valor[0]);
-    //         }
-    //         ctx.drawImage(img3, randomX, randomY);
-    //     };
-    // }
-    
-    // startStations();
-
-
-    */

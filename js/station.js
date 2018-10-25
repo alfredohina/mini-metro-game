@@ -13,9 +13,50 @@ function station(type, x, y) {
   }
 };
 
+var spaces = [
+  {x1: 100, x2: 250, y1:70, y2: 200},
+  {x1: 300, x2: 500, y1:70, y2: 150},
+  {x1: 550, x2: 800, y1:70, y2: 180},
+
+  {x1: 100, x2: 250, y1:200, y2: 340},
+  {x1: 550, x2: 800, y1:220, y2: 340},
+
+  {x1: 100, x2: 250, y1:400, y2: 550},
+  {x1: 300, x2: 500, y1:400, y2: 550},
+  {x1: 550, x2: 750, y1:400, y2: 550}
+];
+
+
+function getPositions() {
+spaces.forEach(element => {
+  var xfin = Math.round(Math.random() * (element.x1 - element.x2) + element.x2)
+  var yfin = Math.round(Math.random() * (element.y1 - element.y2) + element.y2)
+  spaces.push({x: xfin, y: yfin})
+});
+}
+
+getPositions();
+
+function getObjPositions() {
+  spaces.splice(0, 8)
+}
+
+getObjPositions();
+
+
+
+
 
 function generateRandomStation() {
-  var snd = new Audio("sounds/newStation.mov"); // buffers automatically when created
+  var randObj = Math.floor(Math.random()*spaces.length);
+  var item = spaces[randObj];
+  spaces.splice(randObj, 1);
+
+
+
+console.log(item)
+
+  var snd = new Audio("sounds/newStation.mov");
   snd.play();
   var randomX = Math.floor(Math.random() * (860 - 100) + 100);
   //(300 - 600)) + 600;
@@ -25,28 +66,6 @@ function generateRandomStation() {
   var randomType = types[Math.floor(Math.random() * types.length)];
 
   
-  
-  for (i = 0; i < allStations.length; i++) {
-
-    // if (!((randomX < (allStations[(allStations.length - 1)].x + 50)) && (randomX >= (allStations[(allStations.length - 1)].x - 50)) && (randomY < (allStations[(allStations.length - 1)].y + 50)) && (randomY >= (allStations[(allStations.length - 1)].y - 50)))) {
-    //   var newStation = new station(randomType, randomX, randomY);
-    //   return newStation;
-    // }
-    
-    // if (!((randomX < (allStations[i].x + 100)) && (randomX >= (allStations[i].x - 50)) && (randomY < (allStations[i].x + 50)) && (randomY >= (allStations[i].y - 50)))) {
-    //   var newStation = new station(randomType, randomX, randomY);
-    //   return newStation;
-    // }
-    var newStation = new station(randomType, randomX, randomY);
+    var newStation = new station(randomType, item.x, item.y);
     return newStation;
-  }
 }
-
-
-
-
-// if o switch case type = square
-
-
-
-  // check y dejar pasajero

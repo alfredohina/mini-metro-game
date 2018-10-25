@@ -125,6 +125,16 @@ btnLineaA.onclick = function () {
 };
 
 
+
+btnLineaAdel.onclick = function () {
+    lineaA.shift();
+}
+
+btnLineaAdelB.onclick = function () {
+    lineaA.pop();
+}
+
+
 btnLineaB.onclick = function () {
 
     canvas.onclick = function (e) {

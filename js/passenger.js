@@ -26,10 +26,6 @@ function generateRandomPassenger() {
         allStations[randStation].passenger.push(newPassenger);
     } else if ((allStations[randStation].passenger.length > 1) && (allStations[randStation].passenger.length < 3)) {
         var newPassenger = new passenger(randomType, randomStations.x + 65, randomStations.y);
-        allStations[randStation].passenger.push(newPassenger); }
-    // } else if ((allStations[randStation].passenger.length > 2) && (allStations[randStation].passenger.length < 4)) {
-    //     var newPassenger = new passenger(randomType, randomStations.x + 80, randomStations.y);
-    //     allPassengers.push(newPassenger);
-    //     allStations[randStation].passenger.push(newPassenger);
-    // }
+        allStations[randStation].passenger.push(newPassenger); 
+    }
 }

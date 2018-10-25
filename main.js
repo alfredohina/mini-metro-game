@@ -80,6 +80,7 @@ window.onload = function () {
             allLine.forEach(train => {
                 train.drawTrain();
             })
+
             if (allLine.length >= 1) {
                 if(stop && timeStopped == 200){
                     moveTrain();
@@ -89,8 +90,8 @@ window.onload = function () {
                 else if(!stop){
                     moveTrain();
                 }
-                
             }
+            
             allStations.forEach(station => {
                 station.drawImage();
                 station.passenger.forEach(pas => {
