@@ -5,25 +5,56 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.4.1/css/all.css" integrity="sha384-5sAR7xN1Nv6T6+dT2mhtzEpVJvfS3NScPQTrOxhwjIuvcA67KV2R5Jz6kr4abQsz" crossorigin="anonymous">
+
     <link rel="stylesheet" href="./css/style.css">
     <title>Mini Metro Game</title>
 </head>
 
 <body>
+
+
+
     <div class="game">
         <canvas id="mini-metro" width="900" height="600"></canvas>
     </div>
     <div class="controls">
-        <img src="./images/metro_logo.png"><br><br><br>
-        <button id="lineA">Crear Linea Roja</button><br>
-        <button id="lineAdel">Eliminar estación cabecera</button><br>
-        <button id="lineAdelB">Eliminar estación cola</button><br>
-        <button id="lineB">Crear Linea Verde</button><br>
-        <button id="lineC">Crear Linea Azul</button><br><br><br>
-        <button id="trainA">Poner Tren Rojo</button><br>
-        <button id="trainAdel">Retirar Tren Rojo</button><br>
-        <button id="trainB">Poner Tren Verde</button><br>
-        <button id="trainC">Poner Tren Azul</button>
+        <img src="./images/metro_logo.png"><br>
+        <h2><i class="fas fa-gamepad"></i> Game Controls <i class="fas fa-gamepad"></i></h2>
+
+        <table>
+            <img src="./images/linescontrol.png"><br><br>
+            <tr>
+          
+              <td><button id="lineA"><i class="fas fa-plus-circle"></i> Add Stations</button><br>
+                <button id="lineAdel"><i class="fas fa-minus-circle"></i> Delete Headboard</button><br>
+                <button id="lineAdelB"><i class="fas fa-minus-circle"></i> Delete Tail</button><br>
+          <br><br>
+          <button id="trainA"><i class="fas fa-subway"></i> Add Train</button><br>
+        <button id="trainAdel"><i class="fas fa-subway"></i> Remove Train</button><br>
+
+    </td>
+              <td><button id="lineB"><i class="fas fa-plus-circle"></i> Add Stations</button><br>
+                <button id="lineBdel"><i class="fas fa-minus-circle"></i> Delete Headboard</button></button><br>
+                <button id="lineBdelB"><i class="fas fa-minus-circle"></i> Delete Tail</button><br>
+                <br><br>
+                <button id="trainB"><i class="fas fa-subway"></i> Add Train</button><br>
+                <button id="trainBdel"><i class="fas fa-subway"></i> Remove Train</button><br>
+            </td>
+          
+            <td><button id="lineC"><i class="fas fa-plus-circle"></i> Add Stations</button><br>
+                <button id="lineCdel"><i class="fas fa-minus-circle"></i> Delete Headboard</button></button><br>
+                <button id="lineCdelB"><i class="fas fa-minus-circle"></i> Delete Tail</button><br>
+                <br><br>
+                <button id="trainC"><i class="fas fa-subway"></i> Add Train</button><br>
+                <button id="trainCdel"><i class="fas fa-subway"></i> Remove Train</button><br>
+            </td>
+          
+        </table>
+<br><br>
+        <button id="btnStart">RESET GAME</button><br>
+                
+          
     </div>
 
     <script type="text/javascript" src="./js/board.js"></script>

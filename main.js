@@ -81,6 +81,14 @@ window.onload = function () {
                 train.drawTrain();
             })
 
+            allLineB.forEach(train => {
+                train.drawTrain();
+            })
+
+            allLineC.forEach(train => {
+                train.drawTrain();
+            })
+
             if (allLine.length > 0) {
                 if(stop && timeStopped == 200){
                     moveTrain();
@@ -89,6 +97,28 @@ window.onload = function () {
                 }
                 else if(!stop){
                     moveTrain();
+                }
+            }
+
+            if (allLineB.length > 0) {
+                if(stopB && timeStoppedB == 200){
+                    moveTrainB();
+                    stopB = false;
+                    timeStoppedB = 0;
+                }
+                else if(!stopB){
+                    moveTrainB();
+                }
+            }
+
+            if (allLineC.length > 0) {
+                if(stopC && timeStoppedC == 200){
+                    moveTrainC();
+                    stopC = false;
+                    timeStoppedC = 0;
+                }
+                else if(!stopC){
+                    moveTrainC();
                 }
             }
             
@@ -103,6 +133,13 @@ window.onload = function () {
                 timeStopped++;
             }
 
+            if (stopB) {
+                timeStoppedB++;
+            }
+
+            if (stopC) {
+                timeStoppedC++;
+            }
 
 
         requestAnimationFrame(loop);
@@ -110,6 +147,11 @@ window.onload = function () {
     
     requestAnimationFrame(loop);
     
+
+
+    
+    
+
 
 
 };

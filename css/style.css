@@ -1,5 +1,6 @@
 body {
-    background-color: #EAE2A1;
+    /* background-color: #EAE2A1; */
+    background-image: url("../images/bg.jpg");
 }
 
 #mini-metro {
@@ -8,35 +9,49 @@ body {
 
 .game {
     float: left;
+    margin: 20px;
 }
 
 .controls {
     float: left;
-    margin-left: 20px;
-    margin-top: 50px;
+    margin-top: 20px;
 }
 
 button {
     border: none;
     color: white;
-    padding: 10px;
+    padding: 6px;
     text-align: center;
     text-decoration: none;
     display: inline-block;
-    font-size: 16px;
-    margin: 4px 2px;
+    font-size: 12px;
+    margin: 2px 2px;
     cursor: pointer;
-    border-radius: 12px;
+    border-radius: 6px;
 }
 
-#lineA, #trainA {
-    background-color: #ff0000;
+#lineA, #trainA, #lineAdel, #lineAdelB, #trainAdel {
+    background-color: #dc0000;
 }
 
-#lineB, #trainB {
-    background-color: #39ce3e;
+#lineB, #trainB, #lineBdel, #lineBdelB, #trainBdel {
+    background-color: #67c54e;
 }
 
-#lineC, #trainC {
-    background-color: #295ffc;
+#lineC, #trainC, #lineCdel, #lineCdelB, #trainCdel {
+    background-color: #195cdb;
+}
+
+h2 {
+    text-align: center;
+}
+
+#btnStart {
+    background-color: #dfd946;
+    text-align: center;
+    display: block;
+    margin: 0 auto;
+    padding: 10px;
+    font-size: 22px;
+    border-radius: 10px;
 }
