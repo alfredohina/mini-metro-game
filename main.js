@@ -1,5 +1,30 @@
 window.onload = function () {
 
+    
+    var gameSituation = false;
+
+    // if(!gameSituation) {
+    //     var imageStart2 = new Image();
+    //     imageStart2.src = 'images/start.jpg';
+    //     ctx.drawImage(imageStart2, 0, 0);
+    // }
+    
+    document.body.addEventListener("keydown", function(e) {
+        if (e.keyCode == 32 && !gameSituation) {
+            startGame();
+        }
+      });
+
+      function startGame() {
+        gameSituation = true;
+        var intervalId = setInterval(function () {
+            time++;
+        }, 1000);
+        requestAnimationFrame(loop);
+      };
+
+
+
     var newStation;
 
     // var game = new GameArea();
@@ -33,12 +58,12 @@ window.onload = function () {
     }, 1000);
 
 
-  
     
     
     function loop(){
             clear();
             clock();
+
 
             if (lineaA.length > 1) {
                 ctx.beginPath();
@@ -58,8 +83,8 @@ window.onload = function () {
                 for (i = 0; i < lineaB.length-1; i++) {
                     ctx.lineWidth = 10;
                     var e = lineaB
-                    ctx.moveTo(e[i].x, e[i].y);
-                    ctx.lineTo(e[i+1].x, e[i+1].y);
+                    ctx.moveTo(e[i].x+7, e[i].y+7);
+                    ctx.lineTo(e[i+1].x+7, e[i+1].y+7);
                     ctx.stroke();
                 }
             }
@@ -70,8 +95,8 @@ window.onload = function () {
                 for (i = 0; i < lineaC.length-1; i++) {
                     ctx.lineWidth = 10;
                     var e = lineaC
-                    ctx.moveTo(e[i].x, e[i].y);
-                    ctx.lineTo(e[i+1].x, e[i+1].y);
+                    ctx.moveTo(e[i].x-7, e[i].y-7);
+                    ctx.lineTo(e[i+1].x-7, e[i+1].y-7);
                     ctx.stroke();
                 }
             }
@@ -88,6 +113,21 @@ window.onload = function () {
             allLineC.forEach(train => {
                 train.drawTrain();
             })
+
+        if (allLine.length > 0) {
+            ctx.font = "15px Arial";
+            ctx.fillText(travelersA, allLine[0].x + 28, allLine[0].y + 37)
+        }
+
+        if (allLineB.length > 0) {
+            ctx.font = "15px Arial";
+            ctx.fillText(travelersB, allLineB[0].x + 28, allLineB[0].y + 37)
+        }
+
+        if (allLineC.length > 0) {
+            ctx.font = "15px Arial";
+            ctx.fillText(travelersC, allLineC[0].x + 28, allLineC[0].y + 37)
+        }
 
             if (allLine.length > 0) {
                 if(stop && timeStopped == 200){
@@ -142,16 +182,50 @@ window.onload = function () {
             }
 
 
+
+
+            if (score > 10) {
+                var imageWin = new Image();
+                imageWin.src = 'images/win.jpg';
+                ctx.drawImage(imageWin, 0, 0);
+                document.addEventListener("keydown", function(event) {
+                    location.reload();
+                  })
+            }
+
+            if (time > 200) {
+                var imageLose = new Image();
+                imageLose.src = 'images/lose.jpg';
+                ctx.drawImage(imageLose, 0, 0);
+                document.addEventListener("keydown", function(event) {
+                    location.reload();
+                  })
+            }
+
+
+
+        //     if (time > 200) {
+
+
+
+        //         var imageStart2 = new Image();
+        // imageStart2.src = 'images/start.jpg';
+        // ctx.drawImage(imageStart2, 0, 0);
+        // ctx.fillText('Use the mouse to create subway lines by clicking', 250, 210);
+        // ctx.fillText('on the station you choose as origin and', 250, 230);
+        // ctx.fillText('on the station you choose as destination.', 250, 250);
+        // ctx.fillText('Place trains to pick up passengers', 250, 290);
+        // ctx.fillText('and leave them at the station they want to arrive', 250, 310);
+        // ctx.font = "45px Arial";
+        // ctx.fillText('200', 305, 550);
+        // ctx.fillText('40', 515, 550);
+
+        //     }
+            
+            
+
         requestAnimationFrame(loop);
     };
-    
-    requestAnimationFrame(loop);
-    
-
-
-    
-    
-
 
 
 };

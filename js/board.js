@@ -3,23 +3,13 @@ var ctx = canvas.getContext("2d");
 var img = new Image()
 
 
-// function GameArea(time) {
-//     this.time = 0;
-//     this.score = 0;
-// };
-
 
 var time = 0;
 var score = 0;
 var travelers = 0;
-// var travelersA = 0;
-// var travelersB = 0;
-// var travelersC = 0;
-
-var intervalId = setInterval(function () {
-    time++;
-}, 1000);
-
+var travelersA = 0;
+var travelersB = 0;
+var travelersC = 0;
 
 
 
@@ -42,6 +32,7 @@ function clock() {
     ctx.fillText(this.travelers, 65, 41);
 
 }
+
 
 
 function passengers() {
@@ -159,7 +150,7 @@ btnTrainCdel.onclick = function () {
 
 btnStart.onclick = function () {
     if (confirm("¿Estás seguro que deseas reiniciar el juego?")) {
-        alert('You lose')
+        location.reload();
     } else {
         txt = "You pressed Cancel!";
     }

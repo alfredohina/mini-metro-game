@@ -1,6 +1,6 @@
 body {
-    /* background-color: #EAE2A1; */
     background-image: url("../images/bg.jpg");
+    font-family: 'Courier New', Courier, monospace;
 }
 
 #mini-metro {
@@ -44,6 +44,8 @@ button {
 
 h2 {
     text-align: center;
+    
+    font-size: 30px;
 }
 
 #btnStart {
