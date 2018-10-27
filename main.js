@@ -212,7 +212,6 @@ function startStations(){
                   })
             }
             
-
         requestAnimationFrame(loop);
     };
 };
