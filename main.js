@@ -196,7 +196,7 @@ function startStations(){
 
             if (score > 39) {
                 var imageWn = new Image();
-                imageWn.src = 'images/win.jpg';
+                imageWn.src = 'images/win2.jpg';
                 ctx.drawImage(imageWn, 0, 0);
                 document.addEventListener("keydown", function(event) {
                     location.reload();
