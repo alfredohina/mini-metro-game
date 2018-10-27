@@ -96,7 +96,6 @@ function moveTrain() {
 
 
     //CHECKS
-
     allStations.forEach(station => {
         if (stop) {
             if ((allLine[0].x + 15 >= station.x) && (allLine[0].x <= station.x)) {
@@ -110,7 +109,6 @@ function moveTrain() {
                         }
                     }, []);
                 })
-
                 station.passenger.forEach(pas => {
                     if (allLine[0].passengers.length < 6) {
                         allLine[0].passengers.push(pas.type);
@@ -123,9 +121,7 @@ function moveTrain() {
         }
     });
 
-
     //RECALCULATIN DESTINY
-
     if (allLine[0].x === lineaA[estacionDestino].x - 25) {
         estacionOrigen += incremento;
         estacionDestino += incremento;
