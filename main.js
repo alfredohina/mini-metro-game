@@ -194,16 +194,16 @@ function startStations(){
             }
 
 
-            if (score > 40) {
+            if (score > 39) {
                 var imageWn = new Image();
-                imageWin.src = 'images/win.jpg';
-                ctx.drawImage(imageWin, 0, 0);
+                imageWn.src = 'images/win.jpg';
+                ctx.drawImage(imageWn, 0, 0);
                 document.addEventListener("keydown", function(event) {
                     location.reload();
                   })
             }
 
-            if (time > 400) {
+            if (time > 399) {
                 var imageLose = new Image();
                 imageLose.src = 'images/lose.jpg';
                 ctx.drawImage(imageLose, 0, 0);
