@@ -1,13 +1,24 @@
-window.onload = function () {
+var imageStart2 = new Image();
+imageStart2.src = 'images/start.jpg';
+        
 
+window.onload = function () {
     
     var gameSituation = false;
+    if(!gameSituation) {
+        
+        ctx.drawImage(imageStart2, 0, 0);
+        ctx.font = "16px Arial";
+        ctx.fillText('Use the mouse to create subway lines by clicking', 250, 230);
+        ctx.fillText('on the station you choose as origin and', 250, 250);
+        ctx.fillText('on the station you choose as destination.', 250, 270);
+        ctx.fillText('Place trains to pick up passengers', 250, 310);
+        ctx.fillText('and leave them at the station they want to arrive', 250, 330);
+        ctx.font = "45px Arial";
+        ctx.fillText('400', 305, 550);
+        ctx.fillText('40', 515, 550);
+    }
 
-    // if(!gameSituation) {
-    //     var imageStart2 = new Image();
-    //     imageStart2.src = 'images/start.jpg';
-    //     ctx.drawImage(imageStart2, 0, 0);
-    // }
     
     document.body.addEventListener("keydown", function(e) {
         if (e.keyCode == 32 && !gameSituation) {
@@ -20,6 +31,7 @@ window.onload = function () {
         var intervalId = setInterval(function () {
             time++;
         }, 1000);
+        startStations()
         requestAnimationFrame(loop);
       };
 
@@ -45,18 +57,18 @@ window.onload = function () {
     addStation(sTriangle)
 
 
-
+function startStations(){
     window.setInterval(function () {
         if (allStations.length < 10) {
             newStation = generateRandomStation()
             addStation(newStation);
         }
-    }, 1000);
+    }, 10000);
 
     window.setInterval(function () {
             newPassenger = generateRandomPassenger()
-    }, 1000);
-
+    }, 5000);
+}
 
     
     
@@ -182,10 +194,8 @@ window.onload = function () {
             }
 
 
-
-
-            if (score > 10) {
-                var imageWin = new Image();
+            if (score > 40) {
+                var imageWn = new Image();
                 imageWin.src = 'images/win.jpg';
                 ctx.drawImage(imageWin, 0, 0);
                 document.addEventListener("keydown", function(event) {
@@ -193,7 +203,7 @@ window.onload = function () {
                   })
             }
 
-            if (time > 200) {
+            if (time > 400) {
                 var imageLose = new Image();
                 imageLose.src = 'images/lose.jpg';
                 ctx.drawImage(imageLose, 0, 0);
@@ -201,32 +211,9 @@ window.onload = function () {
                     location.reload();
                   })
             }
-
-
-
-        //     if (time > 200) {
-
-
-
-        //         var imageStart2 = new Image();
-        // imageStart2.src = 'images/start.jpg';
-        // ctx.drawImage(imageStart2, 0, 0);
-        // ctx.fillText('Use the mouse to create subway lines by clicking', 250, 210);
-        // ctx.fillText('on the station you choose as origin and', 250, 230);
-        // ctx.fillText('on the station you choose as destination.', 250, 250);
-        // ctx.fillText('Place trains to pick up passengers', 250, 290);
-        // ctx.fillText('and leave them at the station they want to arrive', 250, 310);
-        // ctx.font = "45px Arial";
-        // ctx.fillText('200', 305, 550);
-        // ctx.fillText('40', 515, 550);
-
-        //     }
-            
             
 
         requestAnimationFrame(loop);
     };
-
-
 };
 
